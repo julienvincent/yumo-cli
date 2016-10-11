@@ -3,6 +3,7 @@ import { define, flags, init, setHelpText } from 'cli-core'
 import { addConnection, removeConnection, useConnection } from './commands/Config'
 import { list } from './commands/Queries'
 import { repl } from './commands/REPL'
+import { webUI } from './commands/Web'
 import 'colors'
 
 setHelpText("Yumo CLI\nUsage: yumodb command [sub-commands] [-,--options]\n")
@@ -14,7 +15,9 @@ define(
 
     list,
 
-    repl
+    repl,
+
+    webUI
     // initDB,
     // seed,
     //

@@ -3,8 +3,8 @@ import logger from './utils/logger'
 import rethink from 'rethinkdb'
 import { getConnection } from './utils'
 
-export default query => {
-    const connectionInfo = getConnection()
+export default ({query, connection} = {}) => {
+    const connectionInfo = connection || getConnection()
     connectionInfo.password = option("password") || connectionInfo.password
 
     logger(
@@ -23,7 +23,11 @@ export default query => {
                 } else {
                     logger(logger.error("Could not establish a connection"))
                 }
-                process.exit(0)
+                if (query) {
+                    process.exit(0)
+                } else {
+                    return
+                }
             }
 
             if (query) {
@@ -37,8 +41,7 @@ export default query => {
                     connection.close()
                 })
             } else {
-                logger(logger.error("No query provided"))
-                connection.close()
+                resolve(connection)
             }
         })
     })

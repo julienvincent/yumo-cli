@@ -50,11 +50,13 @@ export const writeConfig: Function = (changes: ConfigType): Boolean => {
         ...config,
         ...changes
     }
+    config = newConfig
 
     try {
         if (!fs.existsSync(configDir)) fs.mkdirSync(configDir)
 
         fs.writeFileSync(configFile, JSON.stringify(newConfig, null, 3))
+        config = newConfig
 
         return true
     } catch (e) {

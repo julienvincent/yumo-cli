@@ -21,7 +21,7 @@ export const repl = command('repl', "Start a super simple repl",
                 var display = displayDocument
 
                 const preParsed = `
-                                    run(${query})
+                                    run({query: ${query}})
                                         .then(res => res.toArray())
                                         .then(res => {
                                             res.forEach(doc => display(doc))

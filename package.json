@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node src/yumo-cli.js",
     "lint": "eslint src; exit 0",
-    "build": "rm -rf lib && babel src -d lib",
+    "build": "rm -rf lib && babel src -d lib --ignore jspm_packages,build && cd src/web && rm -rf build && babel-node server/bundler.js",
     "prepublish": "npm run build",
     "flow": "flow src"
   },
@@ -16,17 +16,22 @@
   "author": "Julien Vincent",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.14.0",
-    "chalk": "^1.1.3",
-    "cli-core": "^1.0.1",
-    "lodash": "^4.16.1",
-    "rethinkdb": "^2.3.3"
-  },
-  "devDependencies": {
     "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-0": "^6.5.0",
-    "flow-bin": "^0.32.0"
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "cli-core": "^1.0.1",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "flow-bin": "^0.32.0",
+    "fs-extra": "^0.30.0",
+    "jspm": "^0.17.0-beta.29",
+    "jspm-devtools": "^1.1.8",
+    "lodash": "^4.16.1",
+    "rethinkdb": "^2.3.3",
+    "socket.io": "^1.5.0"
   }
 }

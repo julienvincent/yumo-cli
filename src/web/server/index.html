@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DB UI</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="apple-mobile-web-app-title" content="OneDayOnly">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+
+    <!--Resource Stylesheets-->
+    <link rel="stylesheet" href="resources/styles/icomoon/style.css">
+    <link rel="stylesheet" href="resources/styles/reset.css">
+
+    <!--Google Font Links-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+    <!--SCRIPTS-->
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm/jspm.config.js"></script>
+    <script src="jspm/dev.jspm.config.js"></script>
+    <script src="dependencies.js"></script>
+    <script src="build/bundle.js"></script>
+</head>
+
+<body>
+<div id="root">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        SystemJS.import('app/app.js')
+        System.loads = {}
+    })
+</script>
+</body>
+</html>
